@@ -3,8 +3,21 @@
 <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
     <title>vermo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    
+    <script> 
+function loadJSON(url,callback){
+var xobj = new XMLHttpRequest();
+xobj.overrideMimeType('application/json');
+xobj.open('GET',url, true);
+xobj.onreadystatechange = function(){
+if (xobj.readyState == 4 && xobj.status == '200'){
+callback(xobj.responseText);
+}else{alert('error load json in url: ' + url);
+}
+xobj.send(null);
+}
+loadJSON('http://dummy.restapiexample.com/api/v1/employees',data){
+alert(data.success);
+}
 </script>
 <div id='ex'>Example
 </div>
